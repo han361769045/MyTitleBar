@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyTitleBar">
+        <attr name="mTitle" format="reference|string"/>
+        <attr name="mTitleSize" format="dimension|reference"/>
+        <attr name="mTitleTextColor" format="reference|color"/>
+
+        <attr name="mLeftText" format="reference|string"/>
+        <attr name="mLeftTextSize" format="dimension|reference"/>
+        <attr name="mLeftTextColor" format="reference|color"/>
+        <attr name="mLeftTextRightDrawable" format="reference"/>
+        <attr name="mLeftTextLeftDrawable" format="reference"/>
+        <attr name="mLeftTextDrawablePadding" format="dimension"/>
+        <attr name="mLeftTextMarginLeft" format="dimension|reference"/>
+
+        <attr name="mRightText" format="reference|string"/>
+        <attr name="mRightTextSize" format="dimension|reference"/>
+        <attr name="mRightTextColor" format="reference|color"/>
+        <attr name="mRightButtonIcon" format="reference"/>
+        <attr name="mRightTextMarginRight" format="dimension|reference"/>
+        <attr name="mRightTextRightDrawable" format="reference"/>
+        <attr name="mRightTextLeftDrawable" format="reference"/>
+        <attr name="mRightTextDrawablePadding" format="dimension"/>
+
+        <attr name="mNavButtonIcon" format="reference"/>
+
+        <attr name="mLogoIcon" format="reference"/>
+        <!--<attr name="mCircleLogo" format="boolean"/>-->
+
+        <attr name="mSearchViewDrawableLeft" format="reference"/>
+        <attr name="mSearchViewDrawableRight" format="reference"/>
+        <attr name="mSearchHintText" format="reference"/>
+        <attr name="mSearchHintTextColor" format="reference|color"/>
+
+        <attr name="mCustomView" format="reference"/>
+        <attr name="mCustomViewGravity" format="enum">
+            <enum name="mLeft" value="0"/>
+            <enum name="mCenter" value="1"/>
+            <enum name="mRight" value="2"/>
+        </attr>
+        <attr name="mCustomViewMarginRight" format="dimension|reference"/>
+        <attr name="mCustomViewMarginLeft" format="dimension|reference"/>
+        <attr name="mStatueBarIsTransparent" format="boolean"/>
+    </declare-styleable>
+</resources>
