@@ -18,6 +18,28 @@ compile 'com.leo.lu:mytitlebar:1.0.0'
         app:mNavButtonIcon="@drawable/title_back"
  />
  ```
+ your custmoview is 
+ ```xml
+ <EditText
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_bg"
+    android:drawablePadding="15dp"
+    android:drawableStart="@drawable/title_search"
+    android:ellipsize="start"
+    android:gravity="center_vertical"
+    android:hint="@string/payment_please_input_number"
+    android:imeOptions="actionSearch"
+    android:inputType="phone"
+    android:maxLines="1"
+    android:padding="@dimen/_10dp"
+    android:textColorHint="@color/payment_bottom"
+    android:textSize="@dimen/_14sp"/>
+ ```
+ 
+ 
  **Attention** 
  if you set the statuebar is TRANSPARENT
   you can add this `app:mStatueBarIsTransparent="true"`,it default is false;
