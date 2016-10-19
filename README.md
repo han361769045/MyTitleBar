@@ -8,14 +8,18 @@ compile 'com.leo.lu:mytitlebar:1.0.0'
 # Usage
 ```xml
   <com.leo.lu.mytitlebar.MyTitleBar
+        android:id="@+id/my_title_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        app:mCustomView="@layout/title_num_search"
-        app:mCustomViewGravity="mRight"
-        app:mCustomViewMarginLeft="@dimen/_55dp"
-        app:mCustomViewMarginRight="@dimen/_15dp"
-        app:mNavButtonIcon="@drawable/title_back"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:mCustomView="@layout/title_search"
+        app:mCustomViewGravity="mLeft"
+        app:mCustomViewMarginLeft="@dimen/_15dp"
+        app:mCustomViewMarginRight="@dimen/_50dp"
+        app:mRightText="@string/cancel"
+        app:mRightTextColor="@color/app_black_text"
+        app:mRightTextMarginRight="@dimen/_15dp"
+        app:mStatueBarIsTransparent="true"
  />
  ```
  your custmoview is 
