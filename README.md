@@ -21,8 +21,12 @@ compile 'com.leo.lu:mytitlebar:1.0.0'
         app:mRightTextMarginRight="@dimen/_15dp"
         app:mStatueBarIsTransparent="true"
  />
+  
  ```
- your custmoview is 
+  **Attention** 
+  if you use custom attr, you must add `xmlns:app="http://schemas.android.com/apk/res-auto"`
+
+ your custmoview is 'title_search.xml' 
  ```xml
  <EditText
     xmlns:android="http://schemas.android.com/apk/res/android"
