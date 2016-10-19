@@ -14,7 +14,7 @@ compile 'com.leo.lu:mytitlebar:1.0.0'
         app:mCustomViewMarginLeft="@dimen/_55dp"
         app:mCustomViewMarginRight="@dimen/_15dp"
         app:mNavButtonIcon="@drawable/title_back"
- /&gt;
+ /&gt; 
  if you set the statuebar is TRANSPARENT
   you can add this app:mStatueBarIsTransparent="true",it default is false;
  
