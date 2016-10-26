@@ -3,7 +3,7 @@ a tool for android
 
 # Dependency
 ```groovy
-compile 'com.leo.lu:mytitlebar:1.0.0'
+compile 'com.leo.lu:mytitlebar:1.0.1'
 ```
 # Usage
 ```xml
