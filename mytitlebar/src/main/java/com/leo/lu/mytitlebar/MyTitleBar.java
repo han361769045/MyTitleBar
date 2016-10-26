@@ -465,7 +465,7 @@ public class MyTitleBar extends RelativeLayout {
 
     private void ensureRightButtonView() {
         if (mRightButtonView == null) {
-            mRightButtonView = new ImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+            mRightButtonView = new ImageButton(getContext(), null);
             mRightButtonView.setId(R.id.m_right_button);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
@@ -504,7 +504,7 @@ public class MyTitleBar extends RelativeLayout {
 
     private void ensureNavButtonView() {
         if (mNavButtonView == null) {
-            mNavButtonView = new ImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+            mNavButtonView = new ImageButton(getContext(), null);
             mNavButtonView.setId(R.id.m_nav_button);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -535,7 +535,7 @@ public class MyTitleBar extends RelativeLayout {
 //                layoutParams = new LayoutParams(100, 100);
 //            } else {
 //            }
-            logoView = new ImageView(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+            logoView = new ImageView(getContext(), null);
             logoView.setId(R.id.m_logo);
             if (mLeftTextView != null) {
                 layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.m_left_text);
