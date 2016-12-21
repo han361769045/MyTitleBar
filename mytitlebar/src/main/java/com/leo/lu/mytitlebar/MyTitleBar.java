@@ -16,6 +16,7 @@ import android.support.v7.widget.TintTypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
@@ -34,15 +35,11 @@ public class MyTitleBar extends RelativeLayout {
 
     private static final String TAG = "MyTitleBar";
 
-    private TextView mTitleTextView;
-
     private CharSequence mTitleText, mLeftText, mRightText, mSearchHintText;
 
-    private TextView mLeftTextView, mRightTextView, mRightButtonViewBadge;
+    private TextView mTitleTextView, mLeftTextView, mRightTextView, mRightButtonViewBadge;
 
-    private ImageButton mNavButtonView;
-
-    private ImageButton mRightButtonView;
+    private ImageButton mNavButtonView, mRightButtonView;
 
     private ImageView logoView;
 
@@ -85,10 +82,10 @@ public class MyTitleBar extends RelativeLayout {
     public MyTitleBar(final Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         final TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs, R.styleable.MyTitleBar, defStyleAttr, 0);
-        mRightTextMarginRight = a.getDimensionPixelSize(R.styleable.MyTitleBar_mRightTextMarginRight, pxFromDp(0));
-        mLeftTextMarginLeft = a.getDimensionPixelSize(R.styleable.MyTitleBar_mLeftTextMarginLeft, pxFromDp(0));
-        mCustomViewMarginRight = a.getDimensionPixelSize(R.styleable.MyTitleBar_mCustomViewMarginRight, pxFromDp(0));
-        mCustomViewMarginLeft = a.getDimensionPixelSize(R.styleable.MyTitleBar_mCustomViewMarginLeft, pxFromDp(0));
+        mRightTextMarginRight = a.getDimensionPixelSize(R.styleable.MyTitleBar_mRightTextMarginRight, pxFromDp(15));
+        mLeftTextMarginLeft = a.getDimensionPixelSize(R.styleable.MyTitleBar_mLeftTextMarginLeft, pxFromDp(15));
+        mCustomViewMarginRight = a.getDimensionPixelSize(R.styleable.MyTitleBar_mCustomViewMarginRight, pxFromDp(40));
+        mCustomViewMarginLeft = a.getDimensionPixelSize(R.styleable.MyTitleBar_mCustomViewMarginLeft, pxFromDp(40));
         mStatueBarIsTransparent = a.getBoolean(R.styleable.MyTitleBar_mStatueBarIsTransparent, false) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         if (mStatueBarIsTransparent && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setStatueBarTransparent();
@@ -134,7 +131,7 @@ public class MyTitleBar extends RelativeLayout {
             setTitleTextColor(a.getColor(R.styleable.MyTitleBar_mTitleTextColor, 0xffffffff));
         }
         if (a.hasValue(R.styleable.MyTitleBar_mTitleSize)) {
-            setTitleSize(a.getDimension(R.styleable.MyTitleBar_mTitleSize, 20));
+            setTitleSize(a.getDimension(R.styleable.MyTitleBar_mTitleSize, 16));
         }
 
         final CharSequence searchHintText = a.getText(R.styleable.MyTitleBar_mSearchHintText);
@@ -170,7 +167,7 @@ public class MyTitleBar extends RelativeLayout {
         }
 
         if (a.hasValue(R.styleable.MyTitleBar_mLeftTextSize)) {
-            setLeftTextSize(a.getDimensionPixelSize(R.styleable.MyTitleBar_mLeftTextSize, textSize));
+            setLeftTextSize(a.getDimension(R.styleable.MyTitleBar_mLeftTextSize, textSize));
         }
 
         mLeftTextDrawablePadding = a.getDimensionPixelSize(R.styleable.MyTitleBar_mLeftTextDrawablePadding, pxFromDp(5));
@@ -317,7 +314,6 @@ public class MyTitleBar extends RelativeLayout {
         }
     }
 
-
     public void setCustomViewOnClickListener(OnClickListener listener) {
         if (mCustomView != null) {
             mCustomView.setOnClickListener(listener);
@@ -327,7 +323,6 @@ public class MyTitleBar extends RelativeLayout {
     public View getmCustomView() {
         return mCustomView;
     }
-
 
     /**
      * set Navigation  ClickListener
@@ -421,14 +416,12 @@ public class MyTitleBar extends RelativeLayout {
         mSearchHintText = title;
     }
 
-
     public void setSearchHintTextColor(@ColorInt int color) {
         mSearchHintTextColor = color;
         if (mSearchView != null) {
             mSearchView.setHintTextColor(mSearchHintTextColor);
         }
     }
-
 
     public void setSearchHintText(@StringRes int resId) {
         setSearchText(getContext().getText(resId));
@@ -437,7 +430,6 @@ public class MyTitleBar extends RelativeLayout {
     public CharSequence getSearchHintText() {
         return mSearchHintText;
     }
-
 
     public void setBadgeCount(int count) {
         ensureBadge();
@@ -465,7 +457,7 @@ public class MyTitleBar extends RelativeLayout {
 
     private void ensureRightButtonView() {
         if (mRightButtonView == null) {
-            mRightButtonView = new ImageButton(getContext(), null);
+            mRightButtonView = new ImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
             mRightButtonView.setId(R.id.m_right_button);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
@@ -473,7 +465,6 @@ public class MyTitleBar extends RelativeLayout {
             addView(mRightButtonView);
         }
     }
-
 
     public void setRightButtonIcon(@Nullable Drawable icon) {
         if (icon != null) {
@@ -483,7 +474,6 @@ public class MyTitleBar extends RelativeLayout {
             mRightButtonView.setImageDrawable(icon);
         }
     }
-
 
     public void setRightButtonIcon(@DrawableRes int resId) {
         setRightButtonIcon(mDrawableManager.getDrawable(getContext(), resId));
@@ -504,7 +494,7 @@ public class MyTitleBar extends RelativeLayout {
 
     private void ensureNavButtonView() {
         if (mNavButtonView == null) {
-            mNavButtonView = new ImageButton(getContext(), null);
+            mNavButtonView = new ImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
             mNavButtonView.setId(R.id.m_nav_button);
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -535,7 +525,7 @@ public class MyTitleBar extends RelativeLayout {
 //                layoutParams = new LayoutParams(100, 100);
 //            } else {
 //            }
-            logoView = new ImageView(getContext(), null);
+            logoView = new ImageView(getContext(), null, R.attr.toolbarNavigationButtonStyle);
             logoView.setId(R.id.m_logo);
             if (mLeftTextView != null) {
                 layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.m_left_text);
@@ -558,10 +548,9 @@ public class MyTitleBar extends RelativeLayout {
     public void setLeftTextSize(float size) {
         mLeftTextSize = size;
         if (mLeftTextView != null) {
-            mLeftTextView.setTextSize(size);
+            mLeftTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
     }
-
 
     public void setLeftText(CharSequence title) {
         if (!TextUtils.isEmpty(title)) {
@@ -583,8 +572,8 @@ public class MyTitleBar extends RelativeLayout {
                 LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
                 layoutParams.alignWithParent = true;
+                layoutParams.setMargins(mLeftTextMarginLeft, 0, 5, 0);
                 if (mNavButtonView == null) {
-                    layoutParams.setMargins(mLeftTextMarginLeft, 0, 5, 0);
                     layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
                 } else {
                     layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.m_nav_button);
@@ -603,7 +592,6 @@ public class MyTitleBar extends RelativeLayout {
         return mLeftText;
     }
 
-
     public void setLeftTextColor(@ColorInt int color) {
         mLeftTextColor = color;
         if (mLeftTextView != null) {
@@ -614,10 +602,9 @@ public class MyTitleBar extends RelativeLayout {
     public void setRightTextSize(float size) {
         mRightTextSize = size;
         if (mRightTextView != null) {
-            mRightTextView.setTextSize(size);
+            mRightTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
     }
-
 
     public void setRightText(@StringRes int resId) {
         setRightText(getContext().getText(resId));
@@ -663,14 +650,12 @@ public class MyTitleBar extends RelativeLayout {
         mRightText = title;
     }
 
-
     public void setRightTextColor(@ColorInt int color) {
         mRightTextColor = color;
         if (mRightTextView != null) {
             mRightTextView.setTextColor(color);
         }
     }
-
 
     public void setTitleTextColor(@ColorInt int color) {
         mTitleTextColor = color;
@@ -682,10 +667,9 @@ public class MyTitleBar extends RelativeLayout {
     public void setTitleSize(float size) {
         mTitleSize = size;
         if (mTitleTextView != null) {
-            mTitleTextView.setTextSize(size);
+            mTitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
     }
-
 
     public void setTitle(CharSequence title) {
         if (!TextUtils.isEmpty(title)) {
@@ -693,7 +677,8 @@ public class MyTitleBar extends RelativeLayout {
                 mTitleTextView = new TextView(getContext());
                 mTitleTextView.setSingleLine();
                 mTitleTextView.setGravity(Gravity.CENTER);
-                mTitleTextView.setTextSize(20);
+                mTitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                mTitleTextView.setMaxWidth(pxFromDp(200));
                 mTitleTextView.setEllipsize(TextUtils.TruncateAt.END);
                 if (mTitleTextColor != 0) {
                     mTitleTextView.setTextColor(mTitleTextColor);
@@ -727,7 +712,6 @@ public class MyTitleBar extends RelativeLayout {
         return mTitleText;
     }
 
-
     private int dpFromPx(final float px) {
         return (int) (px / getResources().getDisplayMetrics().density);
     }
@@ -736,11 +720,9 @@ public class MyTitleBar extends RelativeLayout {
         return (int) (dp * getResources().getDisplayMetrics().density);
     }
 
-
     public ImageButton getmRightButtonView() {
         return mRightButtonView;
     }
-
 
     public void showCustomView() {
         if (mCustomView != null) {
