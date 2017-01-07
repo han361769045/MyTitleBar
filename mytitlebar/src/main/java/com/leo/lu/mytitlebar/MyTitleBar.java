@@ -588,6 +588,22 @@ public class MyTitleBar extends RelativeLayout {
         mLeftText = title;
     }
 
+    public void setLeftTextMarginLeft(float dpMargin) {
+        mLeftTextMarginLeft = pxFromDp(dpMargin);
+        if (mLeftTextView != null) {
+            LayoutParams layoutParams = (LayoutParams) mLeftTextView.getLayoutParams();
+            layoutParams.setMargins(mLeftTextMarginLeft, 0, 5, 0);
+        }
+    }
+
+    public void setRightTextMarginRight(float dpMargin) {
+        mRightTextMarginRight = pxFromDp(dpMargin);
+        if (mRightTextView != null) {
+            LayoutParams layoutParams = (LayoutParams) mRightTextView.getLayoutParams();
+            layoutParams.setMargins(5, 0, mRightTextMarginRight, 0);
+        }
+    }
+
     public CharSequence getLeftText() {
         return mLeftText;
     }
