@@ -19,6 +19,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,6 +41,10 @@ public class MyTitleBar extends RelativeLayout {
     private TextView mTitleTextView, mLeftTextView, mRightTextView, mRightButtonViewBadge;
 
     private ImageButton mNavButtonView, mRightButtonView;
+
+    private CheckBox checkBox;
+
+    private Drawable mRightCheckBoxButton;
 
     private ImageView logoView;
 
@@ -211,6 +216,10 @@ public class MyTitleBar extends RelativeLayout {
                 }
             });
         }
+        mRightCheckBoxButton = a.getDrawable(R.styleable.MyTitleBar_mRightCheckBoxButton);
+        if (mRightCheckBoxButton != null) {
+            ensureCheckBoxView();
+        }
 
         a.recycle();
 
@@ -282,7 +291,7 @@ public class MyTitleBar extends RelativeLayout {
     }
 
     /**
-     * @param resId
+     * @param resId resId
      */
     public void setCustomView(@LayoutRes int resId) {
         mCustomView = inflate(getContext(), resId, null);
@@ -290,7 +299,7 @@ public class MyTitleBar extends RelativeLayout {
     }
 
     /**
-     * @param customView
+     * @param customView customView
      */
     public void setCustomView(View customView) {
         mCustomView = customView;
@@ -327,7 +336,7 @@ public class MyTitleBar extends RelativeLayout {
     /**
      * set Navigation  ClickListener
      *
-     * @param listener
+     * @param listener listener
      */
     public void setNavigationOnClickListener(OnClickListener listener) {
 //        ensureNavButtonView();
@@ -338,7 +347,7 @@ public class MyTitleBar extends RelativeLayout {
     /**
      * set RightButton  ClickListener
      *
-     * @param listener
+     * @param listener listener
      */
     public void setRightButtonOnClickListener(OnClickListener listener) {
         //ensureRightButtonView();
@@ -350,7 +359,7 @@ public class MyTitleBar extends RelativeLayout {
     /**
      * set Search ClickListener
      *
-     * @param listener
+     * @param listener listener
      */
     public void setSearchViewOnClickListener(OnClickListener listener) {
         if (mSearchView != null)
@@ -361,7 +370,7 @@ public class MyTitleBar extends RelativeLayout {
     /**
      * set Right ClickListener
      *
-     * @param listener
+     * @param listener listener
      */
     public void setRightTextOnClickListener(OnClickListener listener) {
         if (mRightTextView != null)
@@ -463,6 +472,26 @@ public class MyTitleBar extends RelativeLayout {
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             mRightButtonView.setLayoutParams(layoutParams);
             addView(mRightButtonView);
+        }
+    }
+
+    private void ensureCheckBoxView() {
+        if (checkBox == null) {
+            checkBox = new CheckBox(getContext(), null);
+            checkBox.setId(R.id.m_right_checkbox);
+            LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+            if (mRightButtonView == null && mRightTextView == null) {
+                layoutParams.setMargins(5, 0, mRightTextMarginRight, 0);
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            } else if (mRightTextView != null) {
+                layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.m_right_text);
+            } else {
+                layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.m_right_button);
+            }
+            layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+            checkBox.setLayoutParams(layoutParams);
+            checkBox.setButtonDrawable(mRightCheckBoxButton);
+            addView(checkBox);
         }
     }
 
@@ -795,4 +824,16 @@ public class MyTitleBar extends RelativeLayout {
             logoView.setVisibility(VISIBLE);
         }
     }
+
+    public boolean getCheckBoxIsChecked() {
+        return checkBox != null && checkBox.isChecked();
+    }
+
+    public void setChecked(boolean checked) {
+        if (checkBox != null) {
+            checkBox.setChecked(checked);
+        }
+    }
+
+
 }

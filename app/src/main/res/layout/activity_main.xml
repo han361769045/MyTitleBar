@@ -12,9 +12,7 @@
         app:mLeftText="关闭"
         app:mLeftTextColor="@color/colorAccent"
         app:mNavButtonIcon="@mipmap/ic_launcher"
-        app:mRightText="帮助"
-        app:mRightTextColor="@color/colorAccent"
-        app:mRightTextSize="16sp"
+        app:mRightCheckBoxButton="@drawable/media_select"
         app:mTitle="标题"
         app:mTitleSize="18sp"
         app:mTitleTextColor="@color/colorAccent"/>
