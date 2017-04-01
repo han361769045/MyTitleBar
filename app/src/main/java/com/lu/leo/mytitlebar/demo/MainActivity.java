@@ -3,6 +3,8 @@ package com.lu.leo.mytitlebar.demo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
 
 import com.leo.lu.mytitlebar.MyTitleBar;
 
@@ -21,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
         my_title_bar = (MyTitleBar) findViewById(R.id.my_title_bar);
 
 //        my_title_bar.setLeftTextMarginLeft(50);
-
+        my_title_bar.setLeftTextOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"dfasdfafas",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

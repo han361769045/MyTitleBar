@@ -590,6 +590,7 @@ public class MyTitleBar extends RelativeLayout {
                 mLeftTextView.setId(R.id.m_left_text);
                 mLeftTextView.setEllipsize(TextUtils.TruncateAt.END);
                 mLeftTextView.setMaxEms(4);
+                mLeftTextView.setPadding(10, 0, 10, 0);
                 if (mLeftTextColor != 0) {
                     mLeftTextView.setTextColor(mLeftTextColor);
                 } else {
@@ -598,7 +599,7 @@ public class MyTitleBar extends RelativeLayout {
                 if (mLeftTextSize != 0) {
                     mLeftTextView.setTextSize(mLeftTextSize);
                 }
-                LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
                 layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
                 layoutParams.alignWithParent = true;
                 layoutParams.setMargins(mLeftTextMarginLeft, 0, 5, 0);
@@ -668,6 +669,7 @@ public class MyTitleBar extends RelativeLayout {
                 mRightTextView.setEllipsize(TextUtils.TruncateAt.END);
                 mRightTextView.setId(R.id.m_right_text);
                 mRightTextView.setMaxEms(4);
+                mLeftTextView.setPadding(10, 0, 10, 0);
                 if (mRightTextColor != 0) {
                     mRightTextView.setTextColor(mRightTextColor);
                 } else {
@@ -676,7 +678,7 @@ public class MyTitleBar extends RelativeLayout {
                 if (mRightTextSize != 0) {
                     mRightTextView.setTextSize(mRightTextSize);
                 }
-                LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
                 layoutParams.alignWithParent = true;
                 if (mRightButtonView == null) {
                     layoutParams.setMargins(5, 0, mRightTextMarginRight, 0);
