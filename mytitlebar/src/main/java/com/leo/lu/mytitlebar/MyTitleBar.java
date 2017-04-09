@@ -46,7 +46,7 @@ public class MyTitleBar extends RelativeLayout {
 
     private Drawable mRightCheckBoxButton;
 
-    private ImageView logoView;
+    private ImageButton logoView;
 
     private View mCustomView;
 
@@ -554,7 +554,7 @@ public class MyTitleBar extends RelativeLayout {
 //                layoutParams = new LayoutParams(100, 100);
 //            } else {
 //            }
-            logoView = new ImageView(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+            logoView = new ImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
             logoView.setId(R.id.m_logo);
             if (mLeftTextView != null) {
                 layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.m_left_text);
@@ -564,7 +564,7 @@ public class MyTitleBar extends RelativeLayout {
                 layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             }
             layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
-            layoutParams.setMarginStart(30);
+            layoutParams.setMarginStart(0);
             logoView.setLayoutParams(layoutParams);
             addView(logoView);
         }

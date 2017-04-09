@@ -9,12 +9,11 @@
         android:id="@+id/my_title_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:mLeftText="关闭"
-        app:mLeftTextColor="@color/colorAccent"
-        app:mNavButtonIcon="@mipmap/ic_launcher"
+        app:mLogoIcon="@mipmap/search"
         app:mRightCheckBoxButton="@drawable/media_select"
         app:mTitle="标题"
         app:mTitleSize="18sp"
+        android:background="@color/colorAccent"
         app:mTitleTextColor="@color/colorAccent"/>
 
 </LinearLayout>
