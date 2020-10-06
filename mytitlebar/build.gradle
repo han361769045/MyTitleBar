@@ -1,15 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
-
+    compileSdkVersion 30
     defaultConfig {
-        minSdkVersion 18
-        targetSdkVersion 24
-        versionCode 5
-        versionName "1.4"
-
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 6
+        versionName "1.6"
 
     }
     buildTypes {
@@ -18,34 +15,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.2.1'
-}
-ext {
-    bintrayRepo = 'maven'////bintray
-    bintrayName = 'mytitlebar'//bintray
-
-    publishedGroupId = 'com.leo.lu'
-    artifact = 'mytitlebar'
-
-    siteUrl = 'https://github.com/han361769045/MyTitleBar'
-    gitUrl = 'https://github.com/han361769045/MyTitleBar.git'
-
-    libraryVersion = '1.1.4'
-    libraryName = 'mytitlebar'
-    libraryDescription = 'A tool for Android'
-
-    developerId = 'leolu'
-    developerName = 'leolu'
-    developerEmail = '361769045@qq.com'
-
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    implementation "androidx.appcompat:appcompat:1.2.0"
 }
 
-apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/install.gradle'
-apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/bintray.gradle'
+apply from: 'bintray.gradle'
+//apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/install.gradle'
+//apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/bintray.gradle'

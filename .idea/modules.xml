@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyTitleBar.iml" filepath="$PROJECT_DIR$/MyTitleBar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mytitlebar/mytitlebar.iml" filepath="$PROJECT_DIR$/mytitlebar/mytitlebar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyTitleBar.iml" filepath="$PROJECT_DIR$/MyTitleBar.iml" group="MyTitleBar" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MyTitleBar/app" />
+      <module fileurl="file://$PROJECT_DIR$/mytitlebar/mytitlebar.iml" filepath="$PROJECT_DIR$/mytitlebar/mytitlebar.iml" group="MyTitleBar/mytitlebar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/statusbar/statusbar.iml" filepath="$PROJECT_DIR$/.idea/modules/statusbar/statusbar.iml" group="MyTitleBar/statusbar" />
     </modules>
   </component>
 </project>

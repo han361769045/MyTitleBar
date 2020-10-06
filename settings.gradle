@@ -1,1 +1,2 @@
+include ':statusbar'
 include ':app', ':mytitlebar'
