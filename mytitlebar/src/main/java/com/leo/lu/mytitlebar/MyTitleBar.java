@@ -703,7 +703,7 @@ public class MyTitleBar extends RelativeLayout {
                 mRightTextView.setGravity(Gravity.CENTER);
                 mRightTextView.setEllipsize(TextUtils.TruncateAt.END);
                 mRightTextView.setId(R.id.m_right_text);
-                mRightTextView.setMaxEms(4);
+                mRightTextView.setMaxEms(6);
                 mRightTextView.setPadding(10, 0, 10, 0);
                 if (mRightTextColor != 0) {
                     mRightTextView.setTextColor(mRightTextColor);

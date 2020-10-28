@@ -10,16 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        app:mCustomView="@layout/search_layout"
-        app:mHeight="70dp"
+        app:mHeight="50dp"
         app:mHeightMarginTop="20dp"
-        app:mLogoIcon="@mipmap/search"
-        app:mRightCheckBoxButton="@drawable/media_select"
         app:mStatueBarIsTransparent="true"
         app:mTitle="标题"
-        app:mCustomViewMarginLeft="80dp"
-        app:mTitleSize="18sp"
-        app:mTitleTextRightDrawable="@mipmap/ic_launcher" />
+        app:mRightText="广场广场"
+        app:mRightTextLeftDrawable="@mipmap/search"
+        app:mTitleSize="18sp" />
 
 
 </LinearLayout>
